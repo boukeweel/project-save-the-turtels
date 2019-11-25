@@ -20,6 +20,8 @@ namespace TouchScript.Gestures
     [HelpURL("http://touchscript.github.io/docs/html/T_TouchScript_Gestures_LongPressGesture.htm")]
     public class LongPressGesture : Gesture
     {
+        
+
         #region Constants
 
         /// <summary>
@@ -101,7 +103,7 @@ namespace TouchScript.Gestures
 		protected override void Awake()
 		{
 			base.Awake();
-
+            
 			gestureSampler = CustomSampler.Create("[TouchScript] Long Press Gesture");
 		}
 
@@ -138,6 +140,7 @@ namespace TouchScript.Gestures
             else if (pointersNumState == PointersNumState.PassedMinThreshold)
             {
                 setState(GestureState.Possible);
+                
                 StartCoroutine("wait");
             }
 
