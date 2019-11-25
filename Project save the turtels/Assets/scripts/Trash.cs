@@ -4,15 +4,91 @@ using UnityEngine;
 
 public class Trash : MonoBehaviour
 {
-    public Vector2 velocity;
-    private Rigidbody2D rig2d;
+
+    public Transform Trash1,Trash2,Trash3, Trash4;
+    public float timeTillTrashcan;
+
+
+
+    public float speed = 1.0F;
+
+    private float startTime;
+
+    private float distCovered;
+
+    private bool prul1, prul2, prul3, prul4 = false;
+
+    private float journeyLength;
+
     private void Start()
     {
-        rig2d = GetComponent<Rigidbody2D>();
+        startTime = Time.time;
+
+        
+
     }
     private void Update()
     {
-        velocity = new Vector2(5f, 5f);
-        rig2d.MovePosition(rig2d.position + velocity * Time.deltaTime);
+        
+
+         distCovered = (Time.time - startTime) * speed;
+        if(prul1 == true)
+        {
+            distCovered = (Time.time - startTime) * speed;
+            float fractionOfJourney = distCovered / journeyLength;
+            journeyLength = Vector3.Distance(transform.position, Trash1.position);
+
+
+            transform.position = Vector3.Lerp(transform.position, Trash1.position, fractionOfJourney);
+        }
+        if(prul2 == true)
+        {
+            distCovered = (Time.time - startTime) * speed;
+            float fractionOfJourney = distCovered / journeyLength;
+            journeyLength = Vector3.Distance(transform.position, Trash2.position);
+
+            transform.position = Vector3.Lerp(transform.position, Trash2.position, fractionOfJourney);
+        }
+        if(prul3 == true)
+        {
+            distCovered = (Time.time - startTime) * speed;
+            float fractionOfJourney = distCovered / journeyLength;
+            journeyLength = Vector3.Distance(transform.position, Trash3.position);
+
+            transform.position = Vector3.Lerp(transform.position, Trash3.position, fractionOfJourney);
+        }
+        if(prul4 == true)
+        {
+            distCovered = (Time.time - startTime) * speed;
+            float fractionOfJourney = distCovered / journeyLength;
+            journeyLength = Vector3.Distance(transform.position, Trash4.position);
+
+            transform.position = Vector3.Lerp(transform.position, Trash4.position, fractionOfJourney);
+        }
+       
+    }
+    
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Trash1"))
+        {
+            prul1 = true;
+        }
+        if (collision.CompareTag("Trash2"))
+        {
+            prul2 = true;
+        }
+        if (collision.CompareTag("Trash3"))
+        {
+            prul3 = true;
+        }
+        if (collision.CompareTag("Trash4"))
+        {
+            prul4 = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        
     }
 }
