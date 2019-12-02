@@ -1,23 +1,38 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ResetButton : MonoBehaviour
 {
-    public Button resetbuttonOne;
-    public Button resetbuttonTwo;
     
+    public GameObject ressetimage;
+    public Button resetbutton;
 
     private void Start()
     {
-        resetbuttonTwo.gameObject.SetActive(true);
+        resetbutton.gameObject.SetActive(true);
+        
+        ressetimage.gameObject.SetActive(false);
+        
     }
 
-    public void ResetButtonOne()
+    public void Ressetbutton()
     {
-        resetbuttonTwo.gameObject.SetActive(true);
-        resetbuttonOne.gameObject.SetActive(false);
-    } 
+        resetbutton.gameObject.SetActive(false);
+        
+        ressetimage.gameObject.SetActive(true);
+    }
 
+    public void ResetbuttonJa()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void ResetbuttonNee()
+    {
+        resetbutton.gameObject.SetActive(true);
+        ressetimage.gameObject.SetActive(false);
+    }
 }
