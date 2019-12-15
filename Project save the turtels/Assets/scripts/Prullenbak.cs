@@ -35,14 +35,7 @@ public class Prullenbak : MonoBehaviour
         }
         
         vullen_text.text = "afval in prullenbak"+ Prullenbaknummer.ToString() + " " + stufinprullenbak.ToString();
-        if(isvol == false)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                AddPrull();
-            }
-
-        }
+        
         if(isvol == true)
         {
             print("o ja ");
@@ -106,6 +99,18 @@ public class Prullenbak : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         legen = false;
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(isvol == false)
+        {
+            if (other.CompareTag("trash"))
+            {
+                AddPrull();
+                Destroy(other.gameObject);
+            }
+        }
+        
     }
 
 
