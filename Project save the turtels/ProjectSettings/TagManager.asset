@@ -8,6 +8,10 @@ TagManager:
   - Trash2
   - Trash4
   - Trash3
+  - btc1
+  - btc2
+  - btc3
+  - btc4
   layers:
   - Default
   - TransparentFX
