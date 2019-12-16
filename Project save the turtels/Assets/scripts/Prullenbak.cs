@@ -18,6 +18,8 @@ public class Prullenbak : MonoBehaviour
 
     public float time = 0.5f;
 
+    public GrotenTrashcann Bigtrash;
+
 
     public void AddPrull()
     {
@@ -52,7 +54,7 @@ public class Prullenbak : MonoBehaviour
                 if (time < 0)
                 {
                     stufinprullenbak--;
-                    
+                    Bigtrash.addtrash();
                     time = 0.5f;
                 }
             }

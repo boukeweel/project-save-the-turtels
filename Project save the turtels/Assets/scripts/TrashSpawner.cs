@@ -10,6 +10,8 @@ public class TrashSpawner : MonoBehaviour
     int x_pos;
     int y_pos;
 
+    int randomDing;
+
     private void Start()
     {
 
@@ -22,10 +24,11 @@ public class TrashSpawner : MonoBehaviour
         
         if(spawntime < 0)
         {
+            randomDing = Random.Range(0, 5);
             x_pos = Random.Range(-17, 15);
             y_pos = Random.Range(-8, 8);
-            Vector2 plaats = new Vector2(x_pos, y_pos);
-            Instantiate(trash[0], plaats, Quaternion.identity);
+            Vector3 plaats = new Vector3(x_pos, y_pos,-1);
+            Instantiate(trash[randomDing], plaats, Quaternion.identity);
             spawntime = Random.Range(1, 3);
         }
     }
