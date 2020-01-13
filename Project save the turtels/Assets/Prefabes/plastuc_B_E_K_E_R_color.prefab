@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 5212055785050511242}
   - component: {fileID: 7238077517431759567}
   - component: {fileID: 6697188760539116898}
+  - component: {fileID: 8313470927576190571}
+  - component: {fileID: -4176092228040367739}
   m_Layer: 0
   m_Name: plastuc_B_E_K_E_R_color
   m_TagString: trash
@@ -27,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 957880308443822254}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.046, y: -4.299, z: 0}
-  m_LocalScale: {x: 0.135, y: 0.155, z: 1}
+  m_LocalScale: {x: 0.27, y: 0.31, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -107,3 +109,36 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 11.67, y: 10.17}
   m_EdgeRadius: 0
+--- !u!50 &8313470927576190571
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957880308443822254}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &-4176092228040367739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957880308443822254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3267bc6561c45da4ab92a0a842067515, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

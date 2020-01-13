@@ -20,16 +20,28 @@ public class Trash : MonoBehaviour
 
     private float journeyLength;
 
+    private float _speed = 1;
+
+    public Rigidbody2D rb;
+   
+
+    
     private void Start()
     {
         startTime = Time.time;
 
-        
+        rb = GetComponent<Rigidbody2D>();
 
+    }
+    private void FixedUpdate()
+    {
+        Vector2 Movement = new Vector2(Random.Range(-1, 1), Random.Range(-1, 1));
+        rb.AddForce(Movement);
     }
     private void Update()
     {
-        
+
+        transform.Translate(4 * speed * Time.deltaTime, 3 * speed * Time.deltaTime, 0);
 
          distCovered = (Time.time - startTime) * speed;
         if(prul1 == true)
@@ -86,7 +98,9 @@ public class Trash : MonoBehaviour
         {
             prul4 = true;
         }
+       
     }
+   
     private void OnTriggerExit(Collider other)
     {
         
