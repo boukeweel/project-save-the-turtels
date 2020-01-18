@@ -40,7 +40,7 @@ public class Prullenbak : MonoBehaviour
         
         if(isvol == true)
         {
-            print("o ja ");
+            //print("o ja ");
         }
         if(legen == true)
         {

@@ -11,6 +11,7 @@ public class TrashSpawner : MonoBehaviour
     int y_pos;
 
     int randomDing;
+    
 
     private void Start()
     {
