@@ -16,7 +16,7 @@ public class Prullenbak : MonoBehaviour
 
     public bool legen = false;
 
-    public float time = 0.5f;
+    public float time = 0.3f;
 
     public GrotenTrashcann Bigtrash;
 
@@ -55,12 +55,16 @@ public class Prullenbak : MonoBehaviour
                 {
                     stufinprullenbak--;
                     Bigtrash.addtrash();
-                    time = 0.5f;
+                    time = 0.3f;
                 }
             }
         }
         
        
+    }
+    public void turtel_no()
+    {
+        stufinprullenbak = 0;
     }
     
     public void Prullebakvol()  
@@ -111,6 +115,12 @@ public class Prullenbak : MonoBehaviour
                 AddPrull();
                 Destroy(other.gameObject);
             }
+
+        }
+        if (other.CompareTag("turtel"))
+        {
+            turtel_no();
+            Destroy(other.gameObject);
         }
         
     }

@@ -17,9 +17,9 @@ public class Muur : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        
-        
-            if (other.CompareTag("trash"))
+
+
+        if (other.CompareTag("trash") || other.CompareTag("turtel"))
             {
                 
                 Destroy(other.gameObject);

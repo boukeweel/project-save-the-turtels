@@ -14,13 +14,15 @@ public class ResetButton : MonoBehaviour
 
     public GrotenTrashcann[] GT;
 
+    public Text winningtext;
+
     private bool GT0 = true;
     private bool GT1 = true;
     private bool GT2 = true;
     private bool GT3 = true;
 
 
-
+    public float TimeofGame;
 
 
     private void Start()
@@ -36,15 +38,36 @@ public class ResetButton : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        TimeofGame -= Time.deltaTime;
+        if(TimeofGame < 0)
         {
-            GetHigestnummber();
-            print(GT0);
-            print(GT1);
-            print(GT2);
-            print(GT3);
+            TimeEnd();
         }
     }
+
+    private void TimeEnd()
+    {
+        Time.timeScale = 0;
+        GetHigestnummber();
+        Finish_.SetActive(true);
+        if (GT0 == true)
+        {
+            winningtext.text = "De gene die meest heeft geholpen is Geel!";
+        }
+        if (GT1 == true)
+        {
+            winningtext.text = "De gene die meest heeft geholpen is Rood!";
+        }
+        if (GT2 == true)
+        {
+            winningtext.text = "De gene die meest heeft geholpen is Blauw!";
+        }
+        if(GT3 == true)
+        {
+            winningtext.text = "De gene die meest heeft gehoplen is Groen!";
+        }
+    }
+
 
     private void GetHigestnummber()
     {
