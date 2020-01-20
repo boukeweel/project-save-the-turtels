@@ -25,7 +25,7 @@ public class TrashSpawner : MonoBehaviour
         
         if(spawntime < 0)
         {
-            randomDing = Random.Range(0, 5);
+            randomDing = Random.Range(0, 7);
             x_pos = Random.Range(-17, 15);
             y_pos = Random.Range(-8, 8);
             Vector3 plaats = new Vector3(x_pos, y_pos,-1);

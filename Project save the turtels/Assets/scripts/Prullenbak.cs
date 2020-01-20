@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class Prullenbak : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class Prullenbak : MonoBehaviour
 
     public int Prullenbaknummer;
 
-    public Text vullen_text;
+   
 
     bool isvol = false;
 
@@ -20,34 +21,62 @@ public class Prullenbak : MonoBehaviour
 
     public GrotenTrashcann Bigtrash;
 
+    private AudioSource AdS;
+
+    public Sprite[] sp;
+
+    private SpriteRenderer sprenders;
+
+    private void Awake()
+    {
+        AdS = GetComponent<AudioSource>();
+
+        sprenders = GetComponent<SpriteRenderer>();
+
+        sprenders.sprite = sp[0];
+    }
 
     public void AddPrull()
     {
         stufinprullenbak++;
+        AdS.Play();
     }
     private void FixedUpdate()
     {
-        if (stufinprullenbak >= fullPrullebakint)
+        if (stufinprullenbak >  1)
         {
-            Prullebakvol();
+            sprenders.sprite = sp[1];
         }
+        if(stufinprullenbak > 14)
+        {
+            sprenders.sprite = sp[2];
+        }
+        if(stufinprullenbak > 19)
+        {
+            sprenders.sprite = sp[3];
+        }
+
+        if(stufinprullenbak ==  0)
+        {
+            sprenders.sprite = sp[0];
+        }
+       
         if(stufinprullenbak < fullPrullebakint)
         {
             isvol = false;
         }
         
-        vullen_text.text = "afval in prullenbak"+ Prullenbaknummer.ToString() + " " + stufinprullenbak.ToString();
         
-        if(isvol == true)
+        if (stufinprullenbak >= fullPrullebakint)
+        {
+            Prullebakvol();
+        }
+        if (isvol == true)
         {
             //print("o ja ");
         }
         if(legen == true)
         {
-
-
-            
-            
             if (stufinprullenbak > 0)
             {
                 time -= Time.deltaTime;
@@ -57,6 +86,19 @@ public class Prullenbak : MonoBehaviour
                     Bigtrash.addtrash();
                     time = 0.3f;
                 }
+                if (stufinprullenbak == 20)
+                {
+                    sprenders.sprite = sp[2];
+                }
+
+                if (stufinprullenbak == 14)
+                {
+                    sprenders.sprite = sp[1];
+                }
+                if (stufinprullenbak == 1)
+                {
+                    sprenders.sprite = sp[0];
+                }
             }
         }
         
@@ -65,6 +107,7 @@ public class Prullenbak : MonoBehaviour
     public void turtel_no()
     {
         stufinprullenbak = 0;
+        sprenders.sprite = sp[0];
     }
     
     public void Prullebakvol()  

@@ -16,7 +16,7 @@ public class spawnturtels : MonoBehaviour
 
     private void Start()
     {
-        spawntimer = Random.Range(5, 10);
+        spawntimer = Random.Range(10, 15);
     }
     private void Update()
     {
