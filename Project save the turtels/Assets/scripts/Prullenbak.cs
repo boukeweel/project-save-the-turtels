@@ -6,12 +6,10 @@ using UnityEngine.Audio;
 
 public class Prullenbak : MonoBehaviour
 {
-    public int stufinprullenbak;
-    public int fullPrullebakint;
+    public int stufInprullenBak;
+    public int fullPrullebakInt;
 
-    public int Prullenbaknummer;
-
-   
+    public int prullenBakNummer;
 
     bool isvol = false;
 
@@ -19,9 +17,9 @@ public class Prullenbak : MonoBehaviour
 
     public float time = 0.3f;
 
-    public GrotenTrashcann Bigtrash;
+    public GrotenTrashcann bigtrash;
 
-    private AudioSource AdS;
+    private AudioSource adS;
 
     public Sprite[] sp;
 
@@ -29,45 +27,45 @@ public class Prullenbak : MonoBehaviour
 
     private void Awake()
     {
-        AdS = GetComponent<AudioSource>();
-
+        adS = GetComponent<AudioSource>();
         sprenders = GetComponent<SpriteRenderer>();
-
         sprenders.sprite = sp[0];
     }
 
     public void AddPrull()
     {
-        stufinprullenbak++;
-        AdS.Play();
+        // add een trash in de prullenbak
+        stufInprullenBak++;
+        adS.Play();
     }
     private void FixedUpdate()
     {
-        if (stufinprullenbak >  1)
+        //change the sprite of the trashcan
+        if (stufInprullenBak >  1)
         {
             sprenders.sprite = sp[1];
         }
-        if(stufinprullenbak > 14)
+        if(stufInprullenBak > 14)
         {
             sprenders.sprite = sp[2];
         }
-        if(stufinprullenbak > 19)
+        if(stufInprullenBak > 19)
         {
             sprenders.sprite = sp[3];
         }
 
-        if(stufinprullenbak ==  0)
+        if(stufInprullenBak ==  0)
         {
             sprenders.sprite = sp[0];
         }
        
-        if(stufinprullenbak < fullPrullebakint)
+        // looking if the trashcan is still full
+        if(stufInprullenBak < fullPrullebakInt)
         {
             isvol = false;
         }
-        
-        
-        if (stufinprullenbak >= fullPrullebakint)
+       
+        if (stufInprullenBak >= fullPrullebakInt)
         {
             Prullebakvol();
         }
@@ -75,69 +73,73 @@ public class Prullenbak : MonoBehaviour
         {
             //print("o ja ");
         }
+        // empty the trashcan
         if(legen == true)
         {
-            if (stufinprullenbak > 0)
+            if (stufInprullenBak > 0)
             {
                 time -= Time.deltaTime;
                 if (time < 0)
                 {
-                    stufinprullenbak--;
-                    Bigtrash.addtrash();
+                    stufInprullenBak--;
+                    bigtrash.addtrash();
                     time = 0.3f;
                 }
-                if (stufinprullenbak == 20)
+                //change the sprite so it is empty
+                if (stufInprullenBak == 20)
                 {
                     sprenders.sprite = sp[2];
                 }
 
-                if (stufinprullenbak == 14)
+                if (stufInprullenBak == 14)
                 {
                     sprenders.sprite = sp[1];
                 }
-                if (stufinprullenbak == 1)
+                if (stufInprullenBak == 1)
                 {
                     sprenders.sprite = sp[0];
                 }
             }
         }
-        
-       
     }
     public void turtel_no()
     {
-        stufinprullenbak = 0;
+        // if the trashcan touches a turtel empty the trashcan
+        stufInprullenBak = 0;
         sprenders.sprite = sp[0];
     }
-    
+    /// <summary>
+    /// call when the prullenbak has 20 pieces of trash in it
+    /// </summary>
     public void Prullebakvol()  
     {
         isvol = true;
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(Prullenbaknummer == 1)
+        // find the good big trashcan.
+        if(prullenBakNummer == 1)
         {
             if (collision.CompareTag("btc1"))
             {
                 legen = true;
             }
         }
-        if(Prullenbaknummer == 2)
+        if(prullenBakNummer == 2)
         {
             if (collision.CompareTag("btc2"))
             {
                 legen = true;
             }
         }
-        if(Prullenbaknummer == 3)
+        if(prullenBakNummer == 3)
         {
             if (collision.CompareTag("btc3"))
             {
                 legen = true;
             }
         }
-        if(Prullenbaknummer == 4)
+        if(prullenBakNummer == 4)
         {
             if (collision.CompareTag("btc4"))
             {
@@ -147,19 +149,21 @@ public class Prullenbak : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
+        //not on the bigtrash can anymore
         legen = false;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(isvol == false)
         {
+            //add prull
             if (other.CompareTag("trash"))
             {
                 AddPrull();
                 Destroy(other.gameObject);
             }
-
         }
+        //emety te trashcan if it comes in contect with a turtle
         if (other.CompareTag("turtel"))
         {
             turtel_no();

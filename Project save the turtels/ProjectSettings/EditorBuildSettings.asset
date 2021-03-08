@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/even testen.unity
+    guid: 8ba87cba5cc358740ad75d7ea5027d42
   m_configObjects: {}

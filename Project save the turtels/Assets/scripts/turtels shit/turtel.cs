@@ -20,6 +20,7 @@ public class turtel : MonoBehaviour
     }
     private void Update()
     {
+        // move the turtles
         movement = new Vector2(movement_x, movement_y);
         rig.AddForce(movement);
     }

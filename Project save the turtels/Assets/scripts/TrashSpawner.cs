@@ -25,6 +25,7 @@ public class TrashSpawner : MonoBehaviour
         
         if(spawntime < 0)
         {
+            //spawn trash op random location
             randomDing = Random.Range(0, 7);
             x_pos = Random.Range(-17, 15);
             y_pos = Random.Range(-8, 8);

@@ -6,6 +6,7 @@ public class Trash : MonoBehaviour
 {
 
     public Transform Trash1,Trash2,Trash3, Trash4;
+
     public float timeTillTrashcan;
 
 

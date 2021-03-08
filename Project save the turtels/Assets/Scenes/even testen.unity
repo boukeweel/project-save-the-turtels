@@ -4237,6 +4237,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: bc74444b391d1074580b269c70287c58,
         type: 3}
+    - target: {fileID: 4167899150222993818, guid: d4eefd406a509204595877c3dbeff021,
+        type: 3}
+      propertyPath: legen
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4eefd406a509204595877c3dbeff021, type: 3}
 --- !u!224 &4405692215304669729
@@ -4374,6 +4379,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 2ee688d6d77e41c47ba591a9b650d105,
         type: 3}
+    - target: {fileID: 5047883667500822495, guid: 618c9a526a8112f48913ea8449b43046,
+        type: 3}
+      propertyPath: stufinprullenbak
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 618c9a526a8112f48913ea8449b43046, type: 3}
 --- !u!114 &5910338801273800483

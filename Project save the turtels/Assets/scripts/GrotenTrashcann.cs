@@ -6,17 +6,16 @@ using UnityEngine.Audio;
 
 public class GrotenTrashcann : MonoBehaviour
 {
-    public int afvalerin;
+    public int afvalErIn;
     
-    private AudioSource ADS;
+    private AudioSource ads;
 
     private SpriteRenderer Srenders;
     public Sprite[] _sprite;
     private void Awake()
     {
-        ADS = GetComponent<AudioSource>();
-        Srenders = GetComponent<SpriteRenderer>();
-        
+        ads = GetComponent<AudioSource>();
+        Srenders = GetComponent<SpriteRenderer>(); 
     }
     private void Start()
     {
@@ -25,32 +24,32 @@ public class GrotenTrashcann : MonoBehaviour
 
     private void Update()
     {
-        if(afvalerin == 20)
+        //verander de sprite van de grote trash cann
+        if(afvalErIn == 20)
         {
             Srenders.sprite = _sprite[1];
         }
-        if (afvalerin == 40)
+        if (afvalErIn == 40)
         {
             Srenders.sprite = _sprite[2];
         }
-        if (afvalerin == 60)
+        if (afvalErIn == 60)
         {
             Srenders.sprite = _sprite[3];
         }
-        if (afvalerin == 80)
+        if (afvalErIn == 80)
         {
             Srenders.sprite = _sprite[4];
         }
-        if (afvalerin == 100)
+        if (afvalErIn == 100)
         {
             Srenders.sprite = _sprite[5];
         }
-
-       
     }
     public void addtrash()
     {
-        ADS.Play();
-        afvalerin++;
+        //add trash and play sound
+        ads.Play();
+        afvalErIn++;
     }
 }

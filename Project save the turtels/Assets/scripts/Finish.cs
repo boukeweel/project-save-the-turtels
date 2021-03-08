@@ -9,10 +9,10 @@ public class Finish : MonoBehaviour
     private List<int> Test = new List<int>();
     private void Start()
     {
-        Test.Add(GT[0].afvalerin);
-        Test.Add(GT[1].afvalerin);
-        Test.Add(GT[2].afvalerin);
-        Test.Add(GT[3].afvalerin);
+        Test.Add(GT[0].afvalErIn);
+        Test.Add(GT[1].afvalErIn);
+        Test.Add(GT[2].afvalErIn);
+        Test.Add(GT[3].afvalErIn);
     }
     public void Update()
     {
